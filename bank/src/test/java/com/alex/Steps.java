@@ -11,7 +11,7 @@ import static com.alex.matchers.Matchers.hasAmount;
 import static org.junit.Assert.assertThat;
 
 public class Steps {
-    @Given("^I have deposited \\$(\\d+\\.\\d+) in my account$")
+    @Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
     public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) final Money amount) {
         Account account = new Account();
         account.deposit(amount);
