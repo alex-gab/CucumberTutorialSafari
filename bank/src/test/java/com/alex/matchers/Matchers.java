@@ -1,15 +1,15 @@
 package com.alex.matchers;
 
-import com.alex.Steps;
+import com.alex.Money;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
 
 public final class Matchers {
-    public static Matcher<Steps.Money> hasAmount(final Steps.Money amount) {
-        return new TypeSafeDiagnosingMatcher<Steps.Money>() {
+    public static Matcher<Money> hasAmount(final Money amount) {
+        return new TypeSafeDiagnosingMatcher<Money>() {
             @Override
-            protected boolean matchesSafely(final Steps.Money actualMoney, final Description mismatchDescription) {
+            protected boolean matchesSafely(final Money actualMoney, final Description mismatchDescription) {
                 mismatchDescription.appendText("was: ").appendValue(actualMoney);
                 return actualMoney.dollars() == amount.dollars() && actualMoney.cents() == amount.cents();
             }
