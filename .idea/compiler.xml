@@ -22,11 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="CucumberTutorialSafari" />
+        <module name="dataTable" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="CucumberTutorialSafari" target="1.8" />
+      <module name="dataTable" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
