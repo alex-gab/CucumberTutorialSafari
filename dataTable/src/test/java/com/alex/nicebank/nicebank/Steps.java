@@ -1,4 +1,4 @@
-package com.alex.nicebank;
+package com.alex.nicebank.nicebank;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;

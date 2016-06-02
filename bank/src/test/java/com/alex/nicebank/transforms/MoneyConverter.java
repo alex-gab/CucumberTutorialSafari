@@ -1,6 +1,6 @@
-package com.alex.transforms;
+package com.alex.nicebank.transforms;
 
-import com.alex.Money;
+import com.alex.nicebank.Money;
 import cucumber.api.Transformer;
 
 import static java.lang.Integer.parseInt;

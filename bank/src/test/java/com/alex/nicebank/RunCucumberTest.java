@@ -9,5 +9,5 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = "pretty",
         snippets = SnippetType.CAMELCASE,
         features = "src/test/resources")
-public final class RunCukesTest {
+public class RunCucumberTest {
 }

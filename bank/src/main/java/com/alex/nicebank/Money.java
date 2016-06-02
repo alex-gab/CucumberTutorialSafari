@@ -1,4 +1,4 @@
-package com.alex;
+package com.alex.nicebank;
 
 import java.util.regex.Pattern;
 
@@ -6,7 +6,7 @@ public class Money {
     private final int dollars;
     private final int cents;
 
-    public Money(String amount) {
+    Money(final String amount) {
         Pattern pattern = Pattern.compile("^[^\\d]*([\\d]+)\\.([\\d][\\d])$");
         final java.util.regex.Matcher matcher = pattern.matcher(amount);
         matcher.find();
@@ -19,7 +19,7 @@ public class Money {
         this.cents = cents;
     }
 
-    public Money add(Money amount) {
+    Money add(Money amount) {
         final int sumCents = this.cents + amount.cents;
         final int newCents = sumCents % 100;
         final int newDollars = this.dollars + amount.dollars + sumCents / 100;

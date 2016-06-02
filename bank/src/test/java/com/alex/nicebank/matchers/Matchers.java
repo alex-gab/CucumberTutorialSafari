@@ -1,6 +1,6 @@
-package com.alex.matchers;
+package com.alex.nicebank.matchers;
 
-import com.alex.Money;
+import com.alex.nicebank.Money;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;

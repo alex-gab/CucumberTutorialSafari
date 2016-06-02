@@ -1,4 +1,4 @@
-package com.alex;
+package com.alex.nicebank.nicebank;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
@@ -9,5 +9,5 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = "pretty",
         snippets = SnippetType.CAMELCASE,
         features = "src/test/resources")
-public class RunCucumberTest {
+public final class RunCukesTest {
 }
