@@ -9,7 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>dataTable</module>
-        <module>bank</module>
+        <module>bank-spring</module>
+        <module>bank-picocontainer</module>
     </modules>
     <packaging>pom</packaging>
 

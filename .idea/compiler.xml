@@ -23,11 +23,15 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="bank" />
+        <module name="bank-picocontainer" />
+        <module name="bank-spring" />
         <module name="dataTable" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="bank" target="1.8" />
+      <module name="bank-picocontainer" target="1.8" />
+      <module name="bank-spring" target="1.8" />
       <module name="CucumberTutorialSafari" target="1.8" />
       <module name="dataTable" target="1.8" />
     </bytecodeTargetLevel>
