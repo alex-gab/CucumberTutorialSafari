@@ -3,11 +3,14 @@ package com.alex.nicebank.support;
 import com.alex.nicebank.Account;
 import com.alex.nicebank.CashSlot;
 import com.alex.nicebank.Teller;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public final class KnowsTheDomain {
     private Account myAccount;
     private CashSlot cashSlot;
     private Teller teller;
+    private EventFiringWebDriver webDriver;
 
     public final Account getMyAccount() {
         if (myAccount == null) {
@@ -25,8 +28,15 @@ public final class KnowsTheDomain {
 
     public final Teller getTeller() {
         if (teller == null) {
-            teller = new Teller(getCashSlot());
+            teller = new AtmUserInterface(this);
         }
         return teller;
+    }
+
+    public final EventFiringWebDriver getWebDriver() {
+        if (webDriver == null) {
+            webDriver = new EventFiringWebDriver(new ChromeDriver());
+        }
+        return webDriver;
     }
 }
