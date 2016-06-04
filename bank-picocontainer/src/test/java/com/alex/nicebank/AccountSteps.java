@@ -16,11 +16,9 @@ public final class AccountSteps {
         this.helper = helper;
     }
 
-    @Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
-    public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) final Money amount) {
-        helper.getMyAccount().deposit(amount);
-
-        assertThat(helper.getMyAccount().getBalance(), hasAmount(amount));
+    @Given("^my account has been credited with (\\$\\d+\\.\\d+)$")
+    public void myAccountHasBeenCreditedWith(@Transform(MoneyConverter.class) final Money amount) {
+        helper.getMyAccount().credit(amount);
     }
 
     @Then("^the balance in my account should be (\\$\\d+\\.\\d+)$")
