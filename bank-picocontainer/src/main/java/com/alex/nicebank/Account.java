@@ -7,6 +7,10 @@ public final class Account {
         balance = balance.add(amount);
     }
 
+    final void debit(final int amount) {
+        balance = balance.minus(new Money(amount, 0));
+    }
+
     final Money getBalance() {
         return balance;
     }

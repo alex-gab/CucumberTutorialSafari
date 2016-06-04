@@ -7,7 +7,8 @@ public final class Teller {
         this.cashSlot = cashSlot;
     }
 
-    public void withdrawFrom(final Account account, final int amount) {
-        cashSlot.dispense(amount);
+    public void withdrawFrom(final Account account, final int dollars) {
+        account.debit(dollars);
+        cashSlot.dispense(dollars);
     }
 }

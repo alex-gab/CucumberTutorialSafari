@@ -26,6 +26,9 @@ public class Money {
         return new Money(newDollars, newCents);
     }
 
+    public final Money minus(final Money amount) {
+        return add(new Money(-amount.dollars, -amount.cents));
+    }
 
     public int dollars() {
         return dollars;
