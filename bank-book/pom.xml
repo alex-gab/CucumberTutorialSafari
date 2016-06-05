@@ -2,54 +2,52 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.alex</groupId>
+        <artifactId>CucumberTutorialSafari</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.alex</groupId>
-    <artifactId>CucumberTutorialSafari</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>dataTable</module>
-        <module>bank-spring</module>
-        <module>bank-picocontainer</module>
-        <module>bank-book</module>
-    </modules>
-    <packaging>pom</packaging>
+    <artifactId>bank-book</artifactId>
 
     <properties>
-        <cucumber.version>1.2.4</cucumber.version>
-        <junit.version>4.12</junit.version>
+        <picocontainer.version>2.15</picocontainer.version>
+        <jetty.version>9.2.0.M0</jetty.version>
+        <servlet.version>3.0.0.v201112011016</servlet.version>
+        <selenium.version>2.53.0</selenium.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>info.cukes</groupId>
-            <artifactId>cucumber-java</artifactId>
+            <artifactId>cucumber-picocontainer</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
+            <groupId>org.picocontainer</groupId>
+            <artifactId>picocontainer</artifactId>
+            <version>${picocontainer.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <version>3.5.1</version>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>2.12.2</version>
                 <configuration>
                     <argLine>-Duser.language=en</argLine>
                     <argLine>-Xmx1024m</argLine>
@@ -60,4 +58,6 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>
