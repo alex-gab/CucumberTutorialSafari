@@ -25,6 +25,6 @@ public final class WithdrawalServlet extends HttpServlet {
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.getWriter().println(
                 "<html><head><title>ATM</title></head>" +
-                        "<body>Please take your $" + amount + "</body></html>");
+                        "<body id=\"withdrawBody\">Please take your $" + amount + "</body></html>");
     }
 }

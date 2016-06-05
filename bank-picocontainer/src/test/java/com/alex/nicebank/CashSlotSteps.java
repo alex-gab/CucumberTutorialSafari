@@ -2,6 +2,9 @@ package com.alex.nicebank;
 
 import com.alex.nicebank.support.KnowsTheDomain;
 import cucumber.api.java.en.Then;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,11 +17,9 @@ public final class CashSlotSteps {
 
     @Then("^\\$(\\d+) should be dispensed$")
     public void $ShouldBeDispensed(int dollars) throws InterruptedException {
-//        while (helper.getCashSlot().contents() == 0) {
-//            final int ten = 10;
-//            System.out.printf("Waiting %d milliseconds for the cash slot to be dispensed.\n", ten);
-//            TimeUnit.MILLISECONDS.sleep(ten);
-//        }
+        WebDriverWait wait = new WebDriverWait(helper.getWebDriver(), 1);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("withdrawBody")));
+
         assertEquals("Incorrect amount dispensed -",
                 dollars, helper.getCashSlot().contents());
     }
