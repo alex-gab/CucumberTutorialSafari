@@ -14,6 +14,11 @@ public final class CashSlotSteps {
 
     @Then("^\\$(\\d+) should be dispensed$")
     public void $ShouldBeDispensed(int dollars) {
+//        try {
+//            TimeUnit.SECONDS.sleep(1);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         assertEquals("Incorrect amount dispensed -",
                 dollars, helper.getCashSlot().contents());
     }

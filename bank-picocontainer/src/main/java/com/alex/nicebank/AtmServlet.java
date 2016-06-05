@@ -13,7 +13,12 @@ public final class AtmServlet extends HttpServlet {
                                final HttpServletResponse resp) throws IOException {
         resp.setContentType("text/html");
         resp.setStatus(SC_OK);
-        resp.getWriter().println("<html><head><title>Nice Bank ATM</title></head>"
-                + "<body><h1>Welcome to our nice bank!</h1></body></html>");
+        resp.getWriter().println(
+                "<html><head><title>ATM</title></head>" +
+                        "<body><form action=\"/withdraw\" method=\"post\">" +
+                        "<label for=\"amount\">Amount</label>" +
+                        "<input type=\"text\" id=\"amount\" name=\"amount\">" +
+                        "<button type=\"submit\" id=\"withdraw\">Withdraw</button>" +
+                        "</form></body></html>");
     }
 }

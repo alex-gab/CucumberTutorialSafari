@@ -18,7 +18,7 @@ public final class AtmUserInterface implements Teller {
     @Override
     public void withdrawFrom(final Account account, final int dollars) {
         webDriver.get(format("http://localhost:%d", PORT));
-        webDriver.findElement(By.id("Amount")).sendKeys(String.valueOf(dollars));
-        webDriver.findElement(By.id("Withdraw")).click();
+        webDriver.findElement(By.id("amount")).sendKeys(String.valueOf(dollars));
+        webDriver.findElement(By.id("withdraw")).click();
     }
 }
