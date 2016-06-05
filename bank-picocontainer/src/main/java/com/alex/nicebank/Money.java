@@ -19,15 +19,28 @@ public class Money {
         this.cents = cents;
     }
 
-    Money add(Money amount) {
-        final int sumCents = this.cents + amount.cents;
-        final int newCents = sumCents % 100;
-        final int newDollars = this.dollars + amount.dollars + sumCents / 100;
+    public final Money add(final Money amount){
+        int newCents = cents + amount.cents();
+        int newDollars = dollars + amount.dollars();
+
+        if (newCents >= 100){
+            newCents -= 100;
+            newDollars++;
+        }
+
         return new Money(newDollars, newCents);
     }
 
-    public final Money minus(final Money amount) {
-        return add(new Money(-amount.dollars, -amount.cents));
+    public final Money minus(final Money amount){
+        int newCents = cents - amount.cents();
+        int newDollars = dollars - amount.dollars();
+
+        if (newCents < 0){
+            newCents += 100;
+            newDollars--;
+        }
+
+        return new Money(newDollars, newCents);
     }
 
     public int dollars() {

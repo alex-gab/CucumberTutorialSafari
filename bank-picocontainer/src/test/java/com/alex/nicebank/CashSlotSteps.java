@@ -13,11 +13,11 @@ public final class CashSlotSteps {
     }
 
     @Then("^\\$(\\d+) should be dispensed$")
-    public void $ShouldBeDispensed(int dollars) {
-//        try {
-//            TimeUnit.SECONDS.sleep(1);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
+    public void $ShouldBeDispensed(int dollars) throws InterruptedException {
+//        while (helper.getCashSlot().contents() == 0) {
+//            final int ten = 10;
+//            System.out.printf("Waiting %d milliseconds for the cash slot to be dispensed.\n", ten);
+//            TimeUnit.MILLISECONDS.sleep(ten);
 //        }
         assertEquals("Incorrect amount dispensed -",
                 dollars, helper.getCashSlot().contents());
