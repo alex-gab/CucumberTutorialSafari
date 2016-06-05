@@ -21,7 +21,7 @@ public final class AtmServer {
 
     public void start() throws Exception {
         server.start();
-        System.out.printf("Listening on: %s\n.", server.getURI());
+        System.out.printf("Listening on: %s.\n", server.getURI());
     }
 
     public void stop() throws Exception {
