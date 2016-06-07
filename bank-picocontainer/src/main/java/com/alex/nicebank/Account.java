@@ -1,17 +1,18 @@
 package com.alex.nicebank;
 
 public final class Account {
-    private Money balance = new Money("0.00");
+    private final TransactionQueue queue = new TransactionQueue();
 
     final void credit(final Money amount) {
-        balance = balance.add(amount);
+        queue.write("+" + amount.toString());
     }
 
-    final void debit(final int amount) {
-        balance = balance.minus(new Money(amount, 0));
+    final void debit(final int dollars) {
+        final Money amount = new Money(dollars, 0);
+        queue.write("-" + amount.toString());
     }
 
     final Money getBalance() {
-        return balance;
+        return BalanceStore.getBalance();
     }
 }

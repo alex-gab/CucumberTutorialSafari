@@ -2,6 +2,8 @@ package com.alex.nicebank;
 
 import java.util.regex.Pattern;
 
+import static java.lang.String.format;
+
 public class Money {
     private final int dollars;
     private final int cents;
@@ -19,11 +21,11 @@ public class Money {
         this.cents = cents;
     }
 
-    public final Money add(final Money amount){
+    public final Money add(final Money amount) {
         int newCents = cents + amount.cents();
         int newDollars = dollars + amount.dollars();
 
-        if (newCents >= 100){
+        if (newCents >= 100) {
             newCents -= 100;
             newDollars++;
         }
@@ -31,11 +33,11 @@ public class Money {
         return new Money(newDollars, newCents);
     }
 
-    public final Money minus(final Money amount){
+    public final Money minus(final Money amount) {
         int newCents = cents - amount.cents();
         int newDollars = dollars - amount.dollars();
 
-        if (newCents < 0){
+        if (newCents < 0) {
             newCents += 100;
             newDollars--;
         }
@@ -53,9 +55,6 @@ public class Money {
 
     @Override
     public String toString() {
-        return "Money{" +
-                "dollars=" + dollars +
-                ", cents=" + cents +
-                '}';
+        return format("$%01d.%02d", this.dollars(), this.cents());
     }
 }
