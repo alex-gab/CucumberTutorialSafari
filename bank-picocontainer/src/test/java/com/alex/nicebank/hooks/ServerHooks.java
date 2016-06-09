@@ -14,7 +14,7 @@ public final class ServerHooks {
         server = new AtmServer(PORT, helper.getCashSlot(), helper.getMyAccount());
     }
 
-    @Before
+    @Before(order = 2)
     public void startServer() throws Exception {
         server.start();
         System.out.printf("server is started and listening at port: %d.\n", PORT);

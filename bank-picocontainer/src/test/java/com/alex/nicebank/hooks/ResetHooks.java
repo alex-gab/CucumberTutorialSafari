@@ -5,7 +5,7 @@ import com.alex.nicebank.TransactionQueue;
 import cucumber.api.java.Before;
 
 public final class ResetHooks {
-    @Before
+    @Before(order = 1)
     public void reset() {
         TransactionQueue.clear();
         BalanceStore.clear();
