@@ -22,7 +22,16 @@ public final class AccountSteps {
     }
 
     @Then("^the balance in my account should be (\\$\\d+\\.\\d+)$")
-    public void theBalanceInMyAccountShouldBe$(@Transform(MoneyConverter.class) final Money amount) {
+    public void theBalanceInMyAccountShouldBe$(@Transform(MoneyConverter.class) final Money amount) throws InterruptedException {
+        int remaining = 3000;
+        final int poolInterval = 100;
+        Money actualBalance = helper.getMyAccount().getBalance();
+        while (remaining > 0 && !actualBalance.equals(amount)) {
+            Thread.sleep(poolInterval);
+            remaining -= poolInterval;
+            actualBalance = helper.getMyAccount().getBalance();
+
+        }
         assertThat(helper.getMyAccount().getBalance(), hasAmount(amount));
     }
 

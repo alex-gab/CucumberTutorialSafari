@@ -1,5 +1,6 @@
 package com.alex.nicebank;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import static java.lang.String.format;
@@ -45,12 +46,26 @@ public class Money {
         return new Money(newDollars, newCents);
     }
 
-    public int dollars() {
+    public final int dollars() {
         return dollars;
     }
 
-    public int cents() {
+    public final int cents() {
         return cents;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Money money = (Money) o;
+        return dollars == money.dollars &&
+                cents == money.cents;
+    }
+
+    @Override
+    public final int hashCode() {
+        return Objects.hash(dollars, cents);
     }
 
     @Override
