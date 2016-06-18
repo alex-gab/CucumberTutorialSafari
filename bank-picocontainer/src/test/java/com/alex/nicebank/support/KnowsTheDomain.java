@@ -3,6 +3,7 @@ package com.alex.nicebank.support;
 import com.alex.nicebank.Account;
 import com.alex.nicebank.CashSlot;
 import com.alex.nicebank.Teller;
+import org.javalite.activejdbc.Base;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -12,9 +13,21 @@ public final class KnowsTheDomain {
     private Teller teller;
     private EventFiringWebDriver webDriver;
 
+    public KnowsTheDomain() {
+        if (!Base.hasConnection()) {
+            Base.open(
+                    "com.mysql.jdbc.Driver",
+                    "jdbc:mysql://localhost/iCucumber?useSSL=false",
+                    "teller",
+                    "cucumber");
+        }
+        Account.deleteAll();
+    }
+
     public final Account getMyAccount() {
         if (myAccount == null) {
-            myAccount = new Account();
+            myAccount = new Account(1234);
+            myAccount.saveIt();
         }
         return myAccount;
     }

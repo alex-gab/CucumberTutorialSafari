@@ -3,6 +3,7 @@ package com.alex.nicebank;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.javalite.activejdbc.Base;
 
 import static org.eclipse.jetty.servlet.ServletContextHandler.SESSIONS;
 
@@ -30,6 +31,11 @@ public final class AtmServer {
     }
 
     public static void main(String[] args) throws Exception {
+        Base.open(
+                "com.mysql.jdbc.Driver",
+                "jdbc:mysql://localhost/iCucumber?useSSL=false",
+                "teller",
+                "cucumber");
         new AtmServer(9988, new CashSlot(), new Account()).start();
     }
 }

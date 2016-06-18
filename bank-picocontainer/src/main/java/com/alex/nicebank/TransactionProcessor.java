@@ -1,11 +1,20 @@
 package com.alex.nicebank;
 
+import org.javalite.activejdbc.Base;
+
 public final class TransactionProcessor {
     private TransactionQueue queue = new TransactionQueue();
 
     public void process() {
         boolean wasInterrupted = false;
         do {
+            if (!Base.hasConnection()) {
+                Base.open(
+                        "com.mysql.jdbc.Driver",
+                        "jdbc:mysql://localhost/iCucumber?useSSL=false",
+                        "teller", "cucumber");
+            }
+
             String message = queue.read();
 
             try {
@@ -15,13 +24,14 @@ public final class TransactionProcessor {
             }
 
             if (!wasInterrupted && message.length() > 0) {
-                Money balance = BalanceStore.getBalance();
-                Money transactionAmount = new Money(message);
+                final String[] parts = message.split(",");
+                final Account account = Account.findFirst("number = ?", parts[1]);
+                Money transactionAmount = new Money(parts[0]);
 
                 if (isCreditTransaction(message)) {
-                    BalanceStore.setBalance(balance.add(transactionAmount));
+                    account.setBalance(account.getBalance().add(transactionAmount));
                 } else {
-                    BalanceStore.setBalance(balance.minus(transactionAmount));
+                    account.setBalance(account.getBalance().minus(transactionAmount));
                 }
             }
         } while (!wasInterrupted);
