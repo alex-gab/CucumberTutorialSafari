@@ -1,8 +1,8 @@
 package com.alex.nicebank.hooks;
 
 import com.alex.nicebank.AtmServer;
-import com.alex.nicebank.support.KnowsTheAccount;
-import com.alex.nicebank.support.KnowsTheCashSlot;
+import com.alex.nicebank.CashSlot;
+import com.alex.nicebank.support.AccountHelper;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
@@ -11,12 +11,9 @@ public final class ServerHooks {
 
     private final AtmServer server;
 
-    public ServerHooks(final KnowsTheCashSlot cashSlotHelper,
-                       final KnowsTheAccount accountHelper) {
-        server = new AtmServer(
-                PORT,
-                cashSlotHelper.getCashSlot(),
-                accountHelper.getMyAccount());
+    public ServerHooks(final CashSlot cashSlot,
+                       final AccountHelper accountHelper) {
+        server = new AtmServer(PORT, cashSlot, accountHelper.getAccount());
     }
 
     @Before(order = 2)

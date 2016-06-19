@@ -1,6 +1,5 @@
 package com.alex.nicebank;
 
-import com.alex.nicebank.support.KnowsTheCashSlot;
 import com.alex.nicebank.support.MyWebDriver;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
@@ -10,11 +9,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.assertEquals;
 
 public final class CashSlotSteps {
-    private final KnowsTheCashSlot cashSlotHelper;
+    private final CashSlot cashSlot;
     private final MyWebDriver webDriver;
 
-    public CashSlotSteps(final KnowsTheCashSlot cashSlotHelper, final MyWebDriver webDriver) {
-        this.cashSlotHelper = cashSlotHelper;
+    public CashSlotSteps(final CashSlot cashSlot, final MyWebDriver webDriver) {
+        this.cashSlot = cashSlot;
         this.webDriver = webDriver;
     }
 
@@ -24,6 +23,6 @@ public final class CashSlotSteps {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("withdrawBody")));
 
         assertEquals("Incorrect amount dispensed -",
-                dollars, cashSlotHelper.getCashSlot().contents());
+                dollars, cashSlot.contents());
     }
 }
