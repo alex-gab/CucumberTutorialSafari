@@ -11,7 +11,8 @@
         <module>dataTable</module>
         <module>bank-spring</module>
         <module>bank-picocontainer</module>
-        <module>bank-book</module>
+        <module>bank-picocontainer-book</module>
+        <module>bank-spring-book</module>
     </modules>
     <packaging>pom</packaging>
 

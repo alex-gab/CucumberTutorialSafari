@@ -3,9 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CucumberTutorialSafari.iml" filepath="$PROJECT_DIR$/CucumberTutorialSafari.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bank-book/bank-book.iml" filepath="$PROJECT_DIR$/bank-book/bank-book.iml" />
       <module fileurl="file://$PROJECT_DIR$/bank-picocontainer/bank-picocontainer.iml" filepath="$PROJECT_DIR$/bank-picocontainer/bank-picocontainer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bank-picocontainer-book/bank-picocontainer-book.iml" filepath="$PROJECT_DIR$/bank-picocontainer-book/bank-picocontainer-book.iml" />
       <module fileurl="file://$PROJECT_DIR$/bank-spring/bank-spring.iml" filepath="$PROJECT_DIR$/bank-spring/bank-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bank-spring-book/bank-spring-book.iml" filepath="$PROJECT_DIR$/bank-spring-book/bank-spring-book.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataTable/dataTable.iml" filepath="$PROJECT_DIR$/dataTable/dataTable.iml" />
     </modules>
   </component>

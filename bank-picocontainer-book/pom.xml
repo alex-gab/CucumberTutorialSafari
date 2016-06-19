@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bank-book</artifactId>
+    <artifactId>bank-picocontainer-book</artifactId>
 
     <properties>
         <picocontainer.version>2.15</picocontainer.version>
