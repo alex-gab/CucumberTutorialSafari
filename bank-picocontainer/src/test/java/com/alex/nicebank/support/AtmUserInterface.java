@@ -11,8 +11,8 @@ import static java.lang.String.format;
 public final class AtmUserInterface implements Teller {
     private final EventFiringWebDriver webDriver;
 
-    public AtmUserInterface(final KnowsTheDomain helper) {
-        this.webDriver = helper.getWebDriver();
+    public AtmUserInterface(final MyWebDriver webDriver) {
+        this.webDriver = webDriver;
     }
 
     @Override

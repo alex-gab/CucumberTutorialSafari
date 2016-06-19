@@ -1,17 +1,20 @@
 package com.alex.nicebank;
 
-import com.alex.nicebank.support.KnowsTheDomain;
+import com.alex.nicebank.support.KnowsTheAccount;
+import com.alex.nicebank.support.KnowsTheTeller;
 import cucumber.api.java.en.When;
 
 public final class TellerSteps {
-    private final KnowsTheDomain helper;
+    private final KnowsTheTeller tellerHelper;
+    private final KnowsTheAccount accountHelper;
 
-    public TellerSteps(KnowsTheDomain helper) {
-        this.helper = helper;
+    public TellerSteps(final KnowsTheTeller tellerHelper, final KnowsTheAccount accountHelper) {
+        this.tellerHelper = tellerHelper;
+        this.accountHelper = accountHelper;
     }
 
     @When("^I withdraw \\$(\\d+)$")
     public void iWithdraw$(int dollars) {
-        helper.getTeller().withdrawFrom(helper.getMyAccount(), dollars);
+        tellerHelper.getTeller().withdrawFrom(accountHelper.getMyAccount(), dollars);
     }
 }
