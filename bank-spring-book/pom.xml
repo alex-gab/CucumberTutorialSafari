@@ -12,21 +12,14 @@
     <artifactId>bank-spring-book</artifactId>
 
     <properties>
-        <picocontainer.version>2.14.2</picocontainer.version>
         <jetty.version>9.4.0.M0</jetty.version>
         <servlet.version>3.0.0.v201112011016</servlet.version>
         <selenium.version>2.53.0</selenium.version>
         <slf4j.version>1.7.7</slf4j.version>
-        <spring.version>4.0.2.RELEASE</spring.version>
+        <spring.version>4.3.0.RELEASE</spring.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-spring</artifactId>
@@ -62,7 +55,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.27</version>
+            <version>5.1.39</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -88,7 +81,7 @@
             <plugin>
                 <groupId>org.javalite</groupId>
                 <artifactId>activejdbc-instrumentation</artifactId>
-                <version>1.4.1</version>
+                <version>1.4.9</version>
                 <executions>
                     <execution>
                         <phase>process-classes</phase>
@@ -101,7 +94,7 @@
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
-                <version>3.0.5</version>
+                <version>3.5.1</version>
                 <configuration>
                     <changeLogFile>src/main/resources/bank_schema.xml</changeLogFile>
                     <driver>com.mysql.jdbc.Driver</driver>
