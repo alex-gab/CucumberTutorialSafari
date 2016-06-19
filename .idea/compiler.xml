@@ -28,6 +28,7 @@
         <module name="bank-picocontainer-book" />
         <module name="bank-spring" />
         <module name="bank-spring-book" />
+        <module name="bank-spring-web" />
         <module name="dataTable" />
       </profile>
     </annotationProcessing>
@@ -38,6 +39,7 @@
       <module name="bank-picocontainer-book" target="1.8" />
       <module name="bank-spring" target="1.8" />
       <module name="bank-spring-book" target="1.8" />
+      <module name="bank-spring-web" target="1.8" />
       <module name="CucumberTutorialSafari" target="1.8" />
       <module name="dataTable" target="1.8" />
     </bytecodeTargetLevel>

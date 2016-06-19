@@ -9,10 +9,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>dataTable</module>
-        <module>bank-spring</module>
         <module>bank-picocontainer</module>
         <module>bank-picocontainer-book</module>
+        <module>bank-spring</module>
         <module>bank-spring-book</module>
+        <module>bank-spring-web</module>
     </modules>
     <packaging>pom</packaging>
 
