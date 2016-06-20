@@ -17,19 +17,25 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="hooks, nicebank, support" />
+    <context:component-scan base-package="hooks, nicebank, support"/>
 
-    <bean class="support.AtmUserInterface" scope="cucumber-glue" />
-    <bean class="nicebank.CashSlot" scope="cucumber-glue" />
+    <bean class="support.AtmUserInterface" scope="cucumber-glue"/>
+
+    <bean class="support.CashSlotFactory" factory-method="createTestCashSlot"
+          lazy-init="true" scope="cucumber-glue">
+        <constructor-arg>
+            <bean class="nicebank.CashSlotDispenser" scope="cucumber-glue"/>
+        </constructor-arg>
+    </bean>
 
     <bean class="support.AccountFactory" factory-method="createTestAccount"
-                                            lazy-init="true" scope="cucumber-glue" />
+          lazy-init="true" scope="cucumber-glue"/>
 
     <bean class="org.openqa.selenium.support.events.EventFiringWebDriver"
-                                        scope="cucumber-glue" destroy-method="close">
+          scope="cucumber-glue" destroy-method="close">
         <constructor-arg>
             <bean class="org.openqa.selenium.firefox.FirefoxDriver"
-                                        scope="cucumber-glue"/>
+                  scope="cucumber-glue"/>
         </constructor-arg>
     </bean>
 </beans>

@@ -45,6 +45,6 @@ public class AtmServer
                 "com.mysql.jdbc.Driver",
                 "jdbc:mysql://localhost/iCucumber?useSSL=false",
                 "teller", "cucumber");
-        new AtmServer(9988, new CashSlot(), new Account()).start();
+        new AtmServer(9988, new CashSlotDispenser(), new Account()).start();
     }
 }
