@@ -1,15 +1,16 @@
 /***
  * Excerpted from "The Cucumber for Java Book",
  * published by The Pragmatic Bookshelf.
- * Copyrights apply to this code. It may not be used to create training material, 
+ * Copyrights apply to this code. It may not be used to create training material,
  * courses, books, articles, and the like. Contact us if you are in doubt.
- * We make no guarantees that this code is fit for any purpose. 
+ * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/srjcuc for more book information.
-***/
+ ***/
 package hooks;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -19,6 +20,11 @@ public class WebDriverHooks {
 
     @Autowired
     private EventFiringWebDriver webDriver;
+
+    @Before
+    public void deleteAllCookies() {
+        webDriver.manage().deleteAllCookies();
+    }
 
     @After
     public void finish(Scenario scenario) {
