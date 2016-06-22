@@ -27,14 +27,23 @@ public class WithdrawalServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
                                                 throws ServletException, IOException
     {
-        Teller teller = new AutomatedTeller(cashSlot);
         int amount = Integer.parseInt(request.getParameter("amount"));
-        teller.withdrawFrom(account, amount);
+        
+        try {
+            AutomatedTeller.withdrawFrom(cashSlot, account, amount);
 
-        response.setContentType("text/html");
-        response.setStatus(HttpServletResponse.SC_OK);
-        response.getWriter().println(
-             "<html><head><title>ATM</title></head>" +
-                      "<body>Please take your $" + amount + "</body></html>");
-    }
+            response.setContentType("text/html");
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().println(
+                 "<html><head><title>ATM</title></head>" +
+                 "<body>Please take your $" + amount + "</body></html>");
+        }
+        catch (RuntimeException e) {
+            response.setContentType("text/html");
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().println(
+                 "<html><head><title>ATM</title></head>" +
+                 "<body>" + e.getMessage() + "</body></html>");
+        }
+}
 }

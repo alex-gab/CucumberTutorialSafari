@@ -23,6 +23,11 @@ public final class CashSlotDispenser implements CashSlot {
     }
 
     @Override
+    public boolean canDispense(int requested) {
+        return requested <= available;
+    }
+
+    @Override
     public final void dispense(final int requested) {
         if (available >= requested) {
             available -= requested;

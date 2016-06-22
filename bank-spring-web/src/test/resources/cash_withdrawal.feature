@@ -20,3 +20,9 @@ Feature: Cash Withdrawal
     Then I should see an ask-for-less-money message
     And $0 should be dispensed
     And the balance of my account should be unchanged
+
+  Scenario: Unsuccessful withdrawal due to insufficient ATM founds
+    Given my account is in credit
+    And the ATM contains $10
+    When I type $20
+    Then I should see an ask-for-less-money message

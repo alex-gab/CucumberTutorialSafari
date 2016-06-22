@@ -21,6 +21,8 @@ public final class CashSlotFactory {
         }).when(mockCashSlot).load(anyInt());
 
         doAnswer(invocation -> realCashSlot.getContents()).when(mockCashSlot).getContents();
+        doAnswer(invocation -> realCashSlot.canDispense(invocation.getArgumentAt(0, Integer.class))).
+                when(mockCashSlot).canDispense(anyInt());
         doAnswer(new Answer<Void>() {
             @Override
             public Void answer(InvocationOnMock invocation) throws Throwable {

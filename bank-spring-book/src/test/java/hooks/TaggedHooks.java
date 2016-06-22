@@ -6,13 +6,16 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/srjcuc for more book information.
 ***/
-package nicebank;
+package hooks;
 
-public class AutomatedTeller {
+import cucumber.api.java.Before;
+import org.springframework.test.context.ContextConfiguration;
+import support.AtmInterfaceFactory;
 
-    public static void withdrawFrom(CashSlot cashSlot, Account account, int dollars) {
-        cashSlot.dispense(dollars);
-        account.debit(dollars);
+@ContextConfiguration("classpath:cucumber.xml")
+public class TaggedHooks {
+    @Before("@bypass_teller_ui")
+    public void bypassTellerUI() {
+        AtmInterfaceFactory.bypassTellerUI();
     }
 }
-

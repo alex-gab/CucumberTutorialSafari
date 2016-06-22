@@ -23,6 +23,11 @@ public class TellerSteps {
     @Autowired
     private AtmUserInterface teller;
 
+    @When("^I type \\$(\\d+)$")
+    public void iType$(int amount) {
+        teller.type(amount);
+    }
+
     @When("^I request some of my money$")
     public void iRequestSomeOfMyMoney() {
         iWithdraw$(10);

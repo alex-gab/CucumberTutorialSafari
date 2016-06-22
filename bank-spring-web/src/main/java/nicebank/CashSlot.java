@@ -5,5 +5,7 @@ public interface CashSlot {
 
     int getContents();
 
+    boolean canDispense(final int requested);
+
     void dispense(int dollars);
 }

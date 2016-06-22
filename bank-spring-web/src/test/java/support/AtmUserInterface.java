@@ -28,6 +28,13 @@ public class AtmUserInterface implements Teller {
         webDriver.findElement(By.id("withdraw")).click();
     }
 
+    public final void type(final int amount) {
+        webDriver.get("http://localhost:" + hooks.ServerHooks.PORT);
+        final WebElement input = webDriver.findElement(By.id("amount"));
+        final String amountString = String.valueOf(amount);
+        input.sendKeys(amountString);
+    }
+
     public final boolean isDisplaying(final String message) {
         final List<WebElement> elements = webDriver.findElements(By.xpath("//*[contains(text(),'" + message + "')]"));
         return elements.size() > 0;

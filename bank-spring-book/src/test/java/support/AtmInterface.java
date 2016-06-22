@@ -6,13 +6,11 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/srjcuc for more book information.
 ***/
-package nicebank;
+package support;
 
-public class AutomatedTeller {
+import nicebank.Teller;
 
-    public static void withdrawFrom(CashSlot cashSlot, Account account, int dollars) {
-        cashSlot.dispense(dollars);
-        account.debit(dollars);
-    }
+public interface AtmInterface extends Teller {
+    void type(int amount);
+    boolean isDisplaying(String message);
 }
-
