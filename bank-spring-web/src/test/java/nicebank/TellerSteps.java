@@ -45,6 +45,6 @@ public class TellerSteps {
 
     @Then("^I should see an ask-for-less-money message$")
     public void iShouldSeeAnAskForLessMoneyMessage() {
-        assertTrue("Expected error message not displayed", teller.isDisplaying("Insufficient ATM founds"));
+        assertTrue("Expected error message not displayed", teller.isDisplaying("Insufficient ATM funds"));
     }
 }

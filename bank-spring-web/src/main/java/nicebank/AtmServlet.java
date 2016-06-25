@@ -22,8 +22,8 @@ public class AtmServlet extends HttpServlet {
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().println(
                 "<html><head><title>ATM</title>" +
-                        "<script src=\"jquery.1.9.1.min.js\"></script>" +
-                        "<script src=\"notifications.js\"></script>" +
+                        "<script src=\"js/jquery.1.9.1.min.js\"></script>" +
+                        "<script src=\"js/notifications.js\"></script>" +
                         "</head><body>" +
                         "<form id=\"withdrawalForm\" " +
                         "action=\"/withdraw\" method=\"post\">" +

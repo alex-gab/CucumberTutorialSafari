@@ -33,7 +33,7 @@ public final class CashSlotDispenser implements CashSlot {
             available -= requested;
             contents = requested;
         } else {
-            throw new RuntimeException("Insufficient ATM founds");
+            throw new RuntimeException("Insufficient ATM funds");
         }
     }
 }
