@@ -9,7 +9,6 @@
 package support;
 
 import nicebank.Account;
-import nicebank.Teller;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -21,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.swing.*;
 import java.util.List;
 
-public class AtmUserInterface implements Teller {
+public class AtmUserInterface implements AtmInterface {
     @Autowired
     private EventFiringWebDriver webDriver;
 
@@ -32,6 +31,7 @@ public class AtmUserInterface implements Teller {
         webDriver.findElement(By.id("withdraw")).click();
     }
 
+    @Override
     public final void type(final int amount) {
         webDriver.get("http://localhost:" + hooks.ServerHooks.PORT);
         final WebElement input = webDriver.findElement(By.id("amount"));
@@ -42,6 +42,7 @@ public class AtmUserInterface implements Teller {
 //        ask("Ready to continue");
     }
 
+    @Override
     public final boolean isDisplaying(final String message) {
         final By locator = By.xpath("//*[contains(text(),'" + message + "')]");
 

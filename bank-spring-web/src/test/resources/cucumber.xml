@@ -11,27 +11,35 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
             http://www.springframework.org/schema/context
-            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <context:annotation-config/>
 
     <context:component-scan base-package="hooks, nicebank, support"/>
 
-    <bean class="support.AtmUserInterface" scope="cucumber-glue"/>
+    <!--<bean class="config.AppConfig"/>-->
 
-    <bean class="support.CashSlotFactory" factory-method="createTestCashSlot"
+    <bean id="teller" name="teller" class="support.AtmInterfaceFactory" factory-method="createAtmInterface"
+          lazy-init="true" scope="cucumber-glue"/>
+
+    <bean id="realTeller" name="realTeller" class="nicebank.AutomatedTeller" lazy-init="true" scope="cucumber-glue">
+        <constructor-arg ref="cashSlot"/>
+    </bean>
+
+    <bean id="cashSlot" class="support.CashSlotFactory" factory-method="createTestCashSlot"
           lazy-init="true" scope="cucumber-glue">
         <constructor-arg>
-            <bean class="nicebank.CashSlotDispenser" scope="cucumber-glue"/>
+            <bean class="nicebank.CashSlotDispenser"/>
         </constructor-arg>
     </bean>
+
 
     <bean class="support.AccountFactory" factory-method="createTestAccount"
           lazy-init="true" scope="cucumber-glue"/>
 
-    <bean class="support.SharedDriver">
+    <bean class="org.openqa.selenium.support.events.EventFiringWebDriver" destroy-method="quit">
         <constructor-arg>
             <bean class="org.openqa.selenium.firefox.FirefoxDriver"/>
         </constructor-arg>

@@ -18,9 +18,13 @@ import transforms.MoneyConverter;
 
 public class AccountSteps {
 
-    @Autowired
-    private Account account;
+    private final Account account;
     private final Money originalBalance = new Money(30, 0);
+
+    @Autowired
+    private AccountSteps(final Account account) {
+        this.account = account;
+    }
 
     @Given("^my account is in credit$")
     public void myAccountIsInCredit() {

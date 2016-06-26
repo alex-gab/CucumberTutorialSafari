@@ -11,7 +11,7 @@ package nicebank;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
-import support.AtmUserInterface;
+import support.AtmInterface;
 
 import static org.junit.Assert.assertTrue;
 
@@ -21,7 +21,7 @@ public class TellerSteps {
     private Account account;
 
     @Autowired
-    private AtmUserInterface teller;
+    private AtmInterface teller;
 
     @When("^I type \\$(\\d+)$")
     public void iType$(int amount) {
